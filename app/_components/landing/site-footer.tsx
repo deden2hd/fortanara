@@ -29,27 +29,27 @@ export function SiteFooter() {
       <div className="relative mx-auto max-w-7xl">
         <StaggerReveal className="grid gap-12 lg:grid-cols-[1.25fr_0.75fr_0.75fr_0.75fr]">
           <StaggerItem>
-          <div>
-            <p className="text-2xl font-medium tracking-tight">Fortanara</p>
-            <p className="mt-5 max-w-xl text-sm leading-7 text-zinc-500">
-              Fortanara membantu perusahaan menghadapi insiden siber dengan tenang: mulai dari triase awal, analisis
-              forensik, pemulihan data, sampai penguatan sistem agar bisnis dapat kembali berjalan dengan lebih aman.
-            </p>
-            <div className="mt-7 grid gap-3 text-sm text-zinc-500">
-              <a href="mailto:response@fortanara.id" className="flex items-center gap-3 transition-colors hover:text-white">
-                <Mail aria-hidden="true" className="h-4 w-4 text-red-500" strokeWidth={1.8} />
-                response@fortanara.id
-              </a>
-              <a href="tel:+622150988101" className="flex items-center gap-3 transition-colors hover:text-white">
-                <Phone aria-hidden="true" className="h-4 w-4 text-red-500" strokeWidth={1.8} />
-                +62 21 5098 8101
-              </a>
-              <p className="flex items-center gap-3">
-                <MapPin aria-hidden="true" className="h-4 w-4 text-red-500" strokeWidth={1.8} />
-                Jakarta, Indonesia
+            <div>
+              <p className="text-2xl font-medium tracking-tight">Fortamira</p>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-zinc-500">
+                Fortamira membantu perusahaan menghadapi insiden siber dengan tenang: mulai dari triase awal, analisis
+                forensik, pemulihan data, sampai penguatan sistem agar bisnis dapat kembali berjalan dengan lebih aman.
               </p>
+              <div className="mt-7 grid gap-3 text-sm text-zinc-500">
+                <a href="mailto:response@fortanara.id" className="flex items-center gap-3 transition-colors hover:text-white">
+                  <Mail aria-hidden="true" className="h-4 w-4 text-red-500" strokeWidth={1.8} />
+                  response@fortamira.id
+                </a>
+                <a href="tel:+622150988101" className="flex items-center gap-3 transition-colors hover:text-white">
+                  <Phone aria-hidden="true" className="h-4 w-4 text-red-500" strokeWidth={1.8} />
+                  +62 21 5098 8101
+                </a>
+                <p className="flex items-center gap-3">
+                  <MapPin aria-hidden="true" className="h-4 w-4 text-red-500" strokeWidth={1.8} />
+                  Jakarta, Indonesia
+                </p>
+              </div>
             </div>
-          </div>
           </StaggerItem>
 
           <StaggerItem>
@@ -81,7 +81,7 @@ export function SiteFooter() {
         </Reveal>
 
         <div className="mt-8 flex flex-col gap-4 text-sm text-zinc-500 lg:flex-row lg:items-center lg:justify-between">
-          <p>&copy; 2026 Fortanara. All rights reserved.</p>
+          <p>&copy; 2026 deden2hd. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <span>ISO 27001-ready advisory</span>
             <span>Forensic-led recovery</span>

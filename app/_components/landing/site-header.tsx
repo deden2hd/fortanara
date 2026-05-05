@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const navItems = [
@@ -27,12 +30,14 @@ function ConsultationButton({ className = "" }: { className?: string }) {
 }
 
 export function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="relative z-50 w-full border-b border-white/10 bg-[#080808]/95">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <div className="flex items-center gap-10">
           <a href="#home" className="text-xl font-bold tracking-tight text-white">
-            Fortanara
+            Fortamira
           </a>
           <nav aria-label="Primary navigation" className="hidden items-center gap-5 xl:gap-7 lg:flex">
             {navItems.map((item) => (
@@ -50,26 +55,31 @@ export function SiteHeader() {
           <ConsultationButton />
         </div>
 
-        <details className="group/menu relative lg:hidden">
-          <summary
-            className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] transition-colors hover:bg-white/[0.06] [&::-webkit-details-marker]:hidden"
+        <div className="relative lg:hidden">
+          <button
+            type="button"
+            className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] transition-colors hover:bg-white/[0.06]"
             aria-label="Buka menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((current) => !current)}
           >
             <span className="sr-only">Buka menu</span>
             <span className="flex flex-col gap-1.5">
-              <span className="h-0.5 w-5 rounded-full bg-white transition-transform duration-200 group-open/menu:translate-y-2 group-open/menu:rotate-45" />
-              <span className="h-0.5 w-5 rounded-full bg-white transition-opacity duration-200 group-open/menu:opacity-0" />
-              <span className="h-0.5 w-5 rounded-full bg-white transition-transform duration-200 group-open/menu:-translate-y-2 group-open/menu:-rotate-45" />
+              <span className={`h-0.5 w-5 rounded-full bg-white transition-transform duration-200 ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`h-0.5 w-5 rounded-full bg-white transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`h-0.5 w-5 rounded-full bg-white transition-transform duration-200 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
             </span>
-          </summary>
+          </button>
           <div
-            className="absolute right-0 top-14 z-50 w-72 origin-top-right rounded-xl border border-white/10 bg-[#0d0d0d] p-3 opacity-0 shadow-2xl shadow-black/50 transition duration-200 group-open/menu:translate-y-0 group-open/menu:scale-100 group-open/menu:opacity-100"
+            className={`absolute right-0 top-14 z-50 w-72 origin-top-right rounded-xl border border-white/10 bg-[#0d0d0d] p-3 shadow-2xl shadow-black/50 transition duration-200 ${menuOpen ? "pointer-events-auto translate-y-0 scale-100 opacity-100" : "pointer-events-none -translate-y-2 scale-[0.98] opacity-0"
+              }`}
           >
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 className="block rounded-lg px-4 py-3 text-sm text-zinc-300 hover:bg-white/[0.05] hover:text-white"
+                onClick={() => setMenuOpen(false)}
               >
                 {item.label}
               </a>
@@ -81,7 +91,7 @@ export function SiteHeader() {
               <ConsultationButton className="flex-1 pl-4" />
             </div>
           </div>
-        </details>
+        </div>
       </div>
     </header>
   );

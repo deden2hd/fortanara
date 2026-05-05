@@ -8,7 +8,7 @@ const faqs = [
       "Tidak semua kasus memiliki kondisi yang sama. Kami perlu memeriksa varian ransomware, kondisi backup, tingkat kerusakan, dan bukti teknis sebelum menentukan peluang recovery yang aman.",
   },
   {
-    question: "Berapa cepat tim Fortanara bisa merespons insiden?",
+    question: "Berapa cepat tim Fortamira bisa merespons insiden?",
     answer:
       "Untuk kondisi darurat, tim kami membantu triase awal secepat mungkin agar sistem terdampak dapat diisolasi, risiko penyebaran ditekan, dan prioritas pemulihan bisa ditentukan.",
   },
@@ -23,9 +23,9 @@ const faqs = [
       "Siapkan kronologi singkat insiden, sample file terenkripsi bila aman, ransom note, daftar sistem terdampak, status backup, dan kontak teknis yang memahami infrastruktur Anda.",
   },
   {
-    question: "Apakah Fortanara hanya menangani recovery setelah serangan?",
+    question: "Apakah Fortamira hanya menangani recovery setelah serangan?",
     answer:
-      "Tidak. Selain recovery dan respons insiden, Fortanara juga membantu pentest, hardening, audit keamanan, monitoring, dan pendampingan kepatuhan untuk mencegah insiden berulang.",
+      "Tidak. Selain recovery dan respons insiden, Fortamira juga membantu pentest, hardening, audit keamanan, monitoring, dan pendampingan kepatuhan untuk mencegah insiden berulang.",
   },
 ];
 
@@ -44,28 +44,28 @@ export function FAQSection() {
               </h2>
               <p className="max-w-[500px] text-lg leading-7 text-zinc-600">
                 Jawaban singkat untuk membantu Anda memahami proses recovery, respons insiden, dan layanan keamanan
-                Fortanara sebelum mengambil langkah berikutnya.
+                Fortamira sebelum mengambil langkah berikutnya.
               </p>
             </div>
           </div>
 
-          <div className="space-y-3">
+          <div className="faq-accordion space-y-3">
             {faqs.map((item, index) => (
               <details
                 key={item.question}
-                className="group relative z-10 rounded-xl border border-zinc-200 bg-white transition duration-200 hover:border-zinc-300"
+                className="faq-item group rounded-xl border border-zinc-200 bg-white transition-colors duration-200 hover:border-zinc-300 open:border-zinc-300 open:shadow-sm"
                 open={index === 0}
               >
-                <summary className="flex w-full touch-manipulation cursor-pointer list-none items-center justify-between gap-4 rounded-xl px-5 py-5 text-left text-[17px] font-medium leading-7 text-zinc-950 transition duration-200 hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white md:text-lg">
+                <summary className="flex w-full cursor-pointer list-none items-center justify-between gap-4 rounded-xl px-5 py-5 text-left text-[17px] font-medium leading-7 text-zinc-950 transition duration-200 hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white [&::-webkit-details-marker]:hidden md:text-lg">
                   <span>{item.question}</span>
                   <ChevronDown
                     aria-hidden="true"
-                    className="h-5 w-5 shrink-0 text-zinc-950 transition duration-200 group-open:rotate-180"
+                    className="faq-chevron h-5 w-5 shrink-0 text-zinc-950"
                     strokeWidth={1.8}
                   />
                 </summary>
-                <div className="faq-content grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-open:grid-rows-[1fr]">
-                  <div className="overflow-hidden">
+                <div className="faq-body">
+                  <div className="faq-body-inner">
                     <div className="px-5 pb-5 pt-0">
                       <p className="max-w-3xl text-[17px] font-normal leading-8 text-zinc-600">{item.answer}</p>
                     </div>

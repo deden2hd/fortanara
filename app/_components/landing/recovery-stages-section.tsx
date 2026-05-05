@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import { ChevronLeft, ChevronRight, FileUp, KeyRound, Radar, SearchCheck, ShieldAlert } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SectionBadge } from "./section-badge";
@@ -24,7 +21,7 @@ const stages: StageCard[] = [
     number: "#2",
     title: "Kami Akan Menghubungi Anda",
     description:
-      "Analis Fortanara menghubungi tim Anda untuk mengumpulkan konteks insiden dan memvalidasi prioritas sistem.",
+      "Analis Fortamira menghubungi tim Anda untuk mengumpulkan konteks insiden dan memvalidasi prioritas sistem.",
     icon: Radar,
   },
   {
@@ -50,36 +47,26 @@ const stages: StageCard[] = [
   },
 ];
 
-function CarouselControls({ onNext, onPrevious }: { onNext: () => void; onPrevious: () => void }) {
+function CarouselControls() {
   return (
     <div className="mt-7 flex items-center justify-end gap-3">
-      <a
-        href="#stage-card-1"
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/35 text-white transition-colors hover:border-white hover:bg-white/10 sm:hidden"
-        aria-label="Tahapan sebelumnya"
-      >
-        <ChevronLeft aria-hidden="true" className="h-5 w-5" strokeWidth={1.8} />
-      </a>
-      <a
-        href="#stage-card-2"
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/35 text-white transition-colors hover:border-white hover:bg-white/10 sm:hidden"
-        aria-label="Tahapan berikutnya"
-      >
-        <ChevronRight aria-hidden="true" className="h-5 w-5" strokeWidth={1.8} />
-      </a>
       <button
         type="button"
-        className="hidden h-10 w-10 items-center justify-center rounded-full border border-white/35 text-white transition-colors hover:border-white hover:bg-white/10 sm:flex"
+        data-carousel-button
+        data-carousel-target="recovery-stages-carousel"
+        data-carousel-direction="previous"
+        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/35 text-white transition-colors hover:border-white hover:bg-white/10"
         aria-label="Tahapan sebelumnya"
-        onClick={onPrevious}
       >
         <ChevronLeft aria-hidden="true" className="h-5 w-5" strokeWidth={1.8} />
       </button>
       <button
         type="button"
-        className="hidden h-10 w-10 items-center justify-center rounded-full border border-white/35 text-white transition-colors hover:border-white hover:bg-white/10 sm:flex"
+        data-carousel-button
+        data-carousel-target="recovery-stages-carousel"
+        data-carousel-direction="next"
+        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/35 text-white transition-colors hover:border-white hover:bg-white/10"
         aria-label="Tahapan berikutnya"
-        onClick={onNext}
       >
         <ChevronRight aria-hidden="true" className="h-5 w-5" strokeWidth={1.8} />
       </button>
@@ -88,25 +75,6 @@ function CarouselControls({ onNext, onPrevious }: { onNext: () => void; onPrevio
 }
 
 export function RecoveryStagesSection() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  function scrollStages(direction: "previous" | "next") {
-    const carousel = carouselRef.current;
-
-    if (!carousel) {
-      return;
-    }
-
-    const firstCard = carousel.querySelector<HTMLElement>("[data-stage-card]");
-    const cardWidth = firstCard?.getBoundingClientRect().width ?? 340;
-    const gap = 20;
-
-    carousel.scrollBy({
-      behavior: "smooth",
-      left: direction === "next" ? cardWidth + gap : -(cardWidth + gap),
-    });
-  }
-
   return (
     <section id="tahapan-recovery" className="relative overflow-hidden bg-[#050505] px-5 pb-44 pt-24 text-white sm:px-6 sm:pb-52 sm:pt-28 lg:px-8">
       <div className="pointer-events-none absolute inset-x-0 bottom-0 flex h-72 justify-center">
@@ -164,7 +132,7 @@ export function RecoveryStagesSection() {
               Kami mengikuti protokol kerja ketat untuk memastikan data, bukti, dan sistem recovery bergerak dalam
               urutan yang tepat tanpa menambah risiko pada lingkungan yang sedang kritis.
             </p>
-            <CarouselControls onNext={() => scrollStages("next")} onPrevious={() => scrollStages("previous")} />
+            <CarouselControls />
           </div>
         </div>
       </div>
@@ -173,7 +141,7 @@ export function RecoveryStagesSection() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#050505] to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#050505] to-transparent" />
         <div
-          ref={carouselRef}
+          id="recovery-stages-carousel"
           className="scrollbar-hide snap-x snap-mandatory scroll-smooth overflow-x-auto px-5 pb-2 sm:px-6 lg:px-[max(2rem,calc((100vw-80rem)/2+2rem))]"
         >
           <div className="flex gap-5">
@@ -184,7 +152,7 @@ export function RecoveryStagesSection() {
                 <div key={stage.number} className="shrink-0">
                   <article
                     id={`stage-card-${Number(stage.number.replace("#", ""))}`}
-                    data-stage-card
+                    data-carousel-card
                     className="min-h-[290px] w-[300px] shrink-0 scroll-ml-5 snap-start rounded-[22px] border border-white/10 bg-[#171717] p-5 shadow-2xl shadow-black/30 transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-[#1d1d1d] sm:w-[340px]"
                   >
                     <div className="flex items-start justify-between gap-6">

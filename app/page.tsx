@@ -1,5 +1,6 @@
 import { AboutSection } from "./_components/landing/about-section";
 import { AttackImpactSection } from "./_components/landing/attack-impact-section";
+import { CarouselScript } from "./_components/landing/carousel-script";
 import { CTASection } from "./_components/landing/cta-section";
 import { FAQSection } from "./_components/landing/faq-section";
 import { HeroSection } from "./_components/landing/hero-section";
@@ -26,6 +27,7 @@ export default function Home() {
       <FAQSection />
       <CTASection />
       <SiteFooter />
+      <CarouselScript />
     </main>
   );
 }

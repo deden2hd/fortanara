@@ -32,10 +32,19 @@ function PortfolioVisual({ accent }: { accent: string }) {
     <div className="absolute inset-0">
       <div className={`absolute inset-0 bg-gradient-to-br ${accent}`} />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_18%,rgba(255,255,255,0.28),transparent_20%)]" />
-      <div className="absolute left-8 top-8 h-32 w-48 rotate-[-8deg] rounded-2xl border border-white/20 bg-white/20 backdrop-blur-sm" />
-      <div className="absolute right-10 top-16 h-40 w-56 rotate-[10deg] rounded-2xl border border-white/15 bg-black/20 backdrop-blur-sm" />
-      <div className="absolute bottom-24 left-10 right-10 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
+      {/* Subtle grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+      />
+      <div className="absolute left-8 top-6 h-28 w-44 rotate-[-8deg] rounded-2xl border border-white/20 bg-white/15 backdrop-blur-sm" />
+      <div className="absolute right-8 top-10 h-36 w-52 rotate-[10deg] rounded-2xl border border-white/15 bg-black/20 backdrop-blur-sm" />
+      <div className="absolute bottom-28 left-10 right-10 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
     </div>
   );
 }
@@ -69,33 +78,19 @@ export function PortfolioSection() {
               Portofolio
             </SectionBadge>
             <h2 className="mt-5 text-3xl font-medium leading-[1.1] tracking-normal text-zinc-950 sm:text-4xl lg:text-5xl">
-              Rekam jejak Fortanara dalam menjaga kepercayaan.
+              Rekam jejak Fortamira dalam menjaga kepercayaan.
             </h2>
           </div>
 
           <div className="max-w-2xl">
             <p className="text-lg leading-7 text-zinc-600">
-              Setiap insiden punya konteks berbeda. Portofolio kami merangkum bagaimana Fortanara membantu bisnis
+              Setiap insiden punya konteks berbeda. Portofolio kami merangkum bagaimana Fortamira membantu bisnis
               memulihkan data, menutup celah, dan kembali beroperasi dengan bukti yang dapat dipertanggungjawabkan.
             </p>
             <div className="mt-7 flex items-center gap-3">
-              <a
-                href="#portfolio-card-1"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-300 text-zinc-950 transition-colors hover:border-zinc-950 sm:hidden"
-                aria-label="Portofolio sebelumnya"
-              >
-                <ArrowLeft aria-hidden="true" className="h-5 w-5" strokeWidth={1.8} />
-              </a>
-              <a
-                href="#portfolio-card-2"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-300 text-zinc-950 transition-colors hover:border-zinc-950 sm:hidden"
-                aria-label="Portofolio berikutnya"
-              >
-                <ArrowRight aria-hidden="true" className="h-5 w-5" strokeWidth={1.8} />
-              </a>
               <button
                 type="button"
-                className="hidden h-10 w-10 items-center justify-center rounded-full border border-zinc-300 text-zinc-950 transition-colors hover:border-zinc-950 sm:flex"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-300 text-zinc-950 transition-colors hover:border-zinc-950"
                 aria-label="Portofolio sebelumnya"
                 onClick={() => scrollPortfolio("previous")}
               >
@@ -103,7 +98,7 @@ export function PortfolioSection() {
               </button>
               <button
                 type="button"
-                className="hidden h-10 w-10 items-center justify-center rounded-full border border-zinc-300 text-zinc-950 transition-colors hover:border-zinc-950 sm:flex"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-300 text-zinc-950 transition-colors hover:border-zinc-950"
                 aria-label="Portofolio berikutnya"
                 onClick={() => scrollPortfolio("next")}
               >
@@ -130,11 +125,14 @@ export function PortfolioSection() {
                   className="relative aspect-[4/3] w-[330px] scroll-ml-5 snap-start overflow-hidden rounded-[28px] border border-zinc-200 bg-zinc-950 shadow-[0_24px_80px_rgba(15,23,42,0.12)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_32px_90px_rgba(15,23,42,0.18)] sm:w-[430px] lg:w-[520px]"
                 >
                   <PortfolioVisual accent={item.accent} />
-                  <div className="absolute left-4 right-4 bottom-4 rounded-2xl border border-white/20 bg-white/12 p-5 text-white shadow-2xl backdrop-blur-xl">
-                    <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-black/25 px-3 py-1 text-xs text-zinc-200">
-                      <CircleDot aria-hidden="true" className="h-3 w-3 fill-red-500 text-red-500" strokeWidth={1.8} />
-                      Case Study
-                    </div>
+                  <div
+                    className="absolute inset-x-0 bottom-0 rounded-b-[28px] border-t border-white/25 p-5 text-white shadow-[0_-8px_32px_rgba(0,0,0,0.2)]"
+                    style={{
+                      background: "rgba(255, 255, 255, 0.08)",
+                      backdropFilter: "blur(40px) saturate(1.8)",
+                      WebkitBackdropFilter: "blur(40px) saturate(1.8)",
+                    }}
+                  >
                     <h3 className="text-2xl font-medium leading-tight text-white">{item.title}</h3>
                     <p className="mt-3 text-sm leading-6 text-zinc-200">{item.description}</p>
                   </div>

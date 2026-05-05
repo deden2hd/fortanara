@@ -77,7 +77,7 @@ export function AttackImpactSection() {
           </h2>
           <p className="mt-6 max-w-3xl text-lg leading-7 text-zinc-600">
             Serangan ransomware bukan hanya masalah file terenkripsi. Dampaknya menyentuh operasional, finansial,
-            reputasi, dan kepatuhan. Fortanara membantu Anda mengambil keputusan cepat dengan proses pemulihan yang
+            reputasi, dan kepatuhan. Fortamira membantu Anda mengambil keputusan cepat dengan proses pemulihan yang
             terukur.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -96,15 +96,15 @@ export function AttackImpactSection() {
 
             return (
               <StaggerItem key={card.title}>
-              <article className="min-h-[300px] rounded-[24px] border border-zinc-200 bg-zinc-50 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-zinc-300 hover:bg-white hover:shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
-                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${card.iconBoxClassName}`}>
-                  <Icon aria-hidden="true" className={`h-6 w-6 ${card.iconClassName}`} strokeWidth={1.8} />
-                </div>
-                <div className="mt-20">
-                  <h3 className="text-2xl font-medium leading-tight text-zinc-950">{card.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-zinc-600">{card.description}</p>
-                </div>
-              </article>
+                <article className="min-h-[300px] rounded-[24px] border border-zinc-200 bg-zinc-50 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-zinc-300 hover:bg-white hover:shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
+                  <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${card.iconBoxClassName}`}>
+                    <Icon aria-hidden="true" className={`h-6 w-6 ${card.iconClassName}`} strokeWidth={1.8} />
+                  </div>
+                  <div className="mt-20">
+                    <h3 className="text-2xl font-medium leading-tight text-zinc-950">{card.title}</h3>
+                    <p className="mt-4 text-sm leading-6 text-zinc-600">{card.description}</p>
+                  </div>
+                </article>
               </StaggerItem>
             );
           })}

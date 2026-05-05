@@ -10,7 +10,7 @@ export function CTASection() {
           <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_28%,rgba(220,38,38,0.12))]" />
           <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-red-500/80 to-transparent" />
           <div className="relative mx-auto max-w-4xl">
-            <p className="text-2xl font-medium tracking-tight text-white">Fortanara</p>
+            <p className="text-2xl font-medium tracking-tight text-white">Fortamira</p>
             <h2 className="mx-auto mt-8 max-w-4xl text-4xl font-medium leading-[1.08] tracking-normal text-white sm:text-5xl lg:text-6xl">
               Siap mengambil kembali kendali keamanan digital Anda?
             </h2>

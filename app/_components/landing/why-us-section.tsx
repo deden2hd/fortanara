@@ -121,10 +121,10 @@ export function WhyUsSection() {
             Kenapa Kami
           </SectionBadge>
           <h2 className="mx-auto mt-7 max-w-4xl text-3xl font-medium leading-[1.1] tracking-normal text-white sm:text-4xl lg:text-5xl">
-            Kendalikan keamanan digital bersama ahli dari Fortanara.
+            Kendalikan keamanan digital bersama ahli dari Fortamira.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-7 text-zinc-400">
-            Dari respons darurat hingga penguatan sistem, Fortanara membantu bisnis mengambil kendali dengan proses
+            Dari respons darurat hingga penguatan sistem, Fortamira membantu bisnis mengambil kendali dengan proses
             yang jelas, bukti yang rapi, dan eksekusi yang tenang.
           </p>
         </Reveal>
@@ -132,15 +132,15 @@ export function WhyUsSection() {
         <StaggerReveal className="mt-16 grid gap-5 lg:grid-cols-3 lg:grid-rows-2">
           {reasons.map((reason) => (
             <StaggerItem key={reason.title} className={reason.className}>
-            <article
-              className="flex min-h-[320px] h-full flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#0d0d0d] shadow-2xl shadow-black/20 transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-[#121212]"
-            >
-              <BentoVisual type={reason.visual} />
-              <div className="mt-auto px-6 pb-7 pt-7">
-                <h3 className="text-2xl font-medium leading-tight text-white">{reason.title}</h3>
-                <p className="mt-4 text-sm leading-6 text-zinc-400">{reason.description}</p>
-              </div>
-            </article>
+              <article
+                className="flex min-h-[320px] h-full flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#0d0d0d] shadow-2xl shadow-black/20 transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-[#121212]"
+              >
+                <BentoVisual type={reason.visual} />
+                <div className="mt-auto px-6 pb-7 pt-7">
+                  <h3 className="text-2xl font-medium leading-tight text-white">{reason.title}</h3>
+                  <p className="mt-4 text-sm leading-6 text-zinc-400">{reason.description}</p>
+                </div>
+              </article>
             </StaggerItem>
           ))}
         </StaggerReveal>
